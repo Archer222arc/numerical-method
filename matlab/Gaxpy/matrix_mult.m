@@ -6,11 +6,12 @@ B_dis = distributed(B);
 switch(solver)
     case 'default'
         tic;
-        C = A_dis*B_dis;
+        C = A_dis*B_dis
         cost = toc;
     case 'mult_chunk'
         tic;
-        C = mult_chunk(A,B);
+        opt.parallel = 'yes';
+        C = mult_chunk(A,B,opt);
         cost = toc;
 end
 % C = gather(C);
